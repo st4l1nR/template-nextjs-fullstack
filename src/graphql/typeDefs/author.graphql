@@ -1,0 +1,9 @@
+query listAuthor {
+    listAuthor {
+        name
+    }
+}
+
+mutation createAuthor {
+    createAuthor
+}
