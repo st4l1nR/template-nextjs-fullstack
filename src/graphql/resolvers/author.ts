@@ -1,5 +1,5 @@
 export const authorQueries = {
-  listAuthor: async (parent, args, { models }) => {
+  listAuthor: async (parent, args, { models, user }) => {
     return await models.author.find({});
   },
   getAuthorById: async (parent, { _id }, { models }) => {
