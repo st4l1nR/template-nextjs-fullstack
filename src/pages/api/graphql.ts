@@ -5,6 +5,7 @@ import resolvers from '@graphql/resolvers';
 import models from '@graphql/models';
 import Cors from 'micro-cors';
 import processRequest from 'graphql-upload/processRequest.mjs';
+import jwt from 'jsonwebtoken';
 
 const cors = Cors();
 
@@ -13,8 +14,19 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: ({ req }) => {
+    const authorization = req.headers.authorization || '';
+      const token = authorization.split(' ')[1];
+      let user = null;
+      if (token) {
+        try {
+          user = jwt.verify(token, process.env.SECRET as string);
+        } catch (error) {
+          user = null;
+        }
+      }
     return {
       models,
+      user
     };
   },
 });
