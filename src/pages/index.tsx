@@ -3,10 +3,18 @@ import { ListAuthorDocument } from '@ctypes/graphql';
 import { useQuery } from '@apollo/client/react';
 const index = () => {
   const authors = useQuery(ListAuthorDocument);
-  console.log(authors)
+
   return (
-    <div className="max-w-7xl">
-      <div></div>
+    <div className="container flex items-center p-4 mx-auto min-h-screen justify-center">
+      <main>
+        <h1 className="font-mono text-xl code">
+          Welcome to <span className="text-purple-700">Nextjs</span>,{' '}
+          <span className="text-indigo-700">TailwindCSS</span> ,{' '}
+          <span className="text-gray-700">TypeScript</span>, <span className="text-pink-700">Graphql</span>{' '}
+          and <span className="text-emerald-700">MongoDB</span>
+        </h1>
+      </main>
+      <div className="mt-5">{authors && JSON.stringify(authors.data)}</div>
     </div>
   );
 };

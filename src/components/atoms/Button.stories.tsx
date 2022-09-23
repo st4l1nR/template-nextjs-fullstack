@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import Button, { props } from './index';
+import Button, { props } from './Button';
 
 export default {
   title: 'Atoms/Button',
@@ -12,9 +12,7 @@ const Template: Story<props> = (args) => <Button {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   variant: 'primary',
-  label: 'Button',
-  size: 'md',
-  rounded: false,
+
 };
 
 export const Secondary = Template.bind({});
