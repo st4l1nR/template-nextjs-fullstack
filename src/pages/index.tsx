@@ -1,7 +1,7 @@
 import React from 'react';
 import { ListAuthorDocument } from '@ctypes/graphql';
 import { useQuery } from '@apollo/client/react';
-import { Button } from '@components/atoms';
+
 const index = () => {
   const authors = useQuery(ListAuthorDocument);
 
