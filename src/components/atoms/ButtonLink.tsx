@@ -1,22 +1,23 @@
-import React, { FC } from 'react';
+import React, { ReactElement, JSXElementConstructor, FC } from 'react';
 import classNames from '@lib/classNames';
-import { CircularProgress } from '@mui/material';
+import Link from 'next/link';
 
 export type props = {
   className?: string;
+  href: string;
+  target?: string;
   color?: 'primary' | 'neutral' | 'danger' | 'success' | 'none';
   weight?: 'solid' | 'outline' | 'ghost' | 'inline';
   shape?: 'pill' | 'semibrick' | 'brick';
   size?: 'small' | 'medium' | 'large' | 'relative';
   align?: 'left' | 'center' | 'right';
   label?: string | number;
-  icon?: React.ReactElement<SVGElement, string | React.JSXElementConstructor<any>>;
+  icon?: ReactElement<SVGElement, string | JSXElementConstructor<any>>;
   iconPosition?: 'left' | 'right';
-  loading?: boolean;
   fullWidth?: boolean;
-} & React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
+};
 
-const Button: FC<props> = ({
+const ButtonLink: FC<props> = ({
   className,
   color,
   weight,
@@ -25,9 +26,9 @@ const Button: FC<props> = ({
   label,
   icon,
   iconPosition,
-  loading,
   align,
   fullWidth,
+  href,
   ...props
 }) => {
   const colorStyle = classNames(
@@ -72,7 +73,6 @@ const Button: FC<props> = ({
             : weight == 'inline' && 'text-green-500'
         )
   );
-
   const sizeStyle = classNames(
     size == 'small'
       ? 'text-xs py-1 py-2'
@@ -82,7 +82,6 @@ const Button: FC<props> = ({
   );
 
   const shapeStyle = classNames(shape == 'pill' ? 'rounded-full' : shape == 'semibrick' && 'rounded-md');
-
   const alignStyle = classNames(
     align == 'right'
       ? 'justfy-start text-right'
@@ -102,39 +101,32 @@ const Button: FC<props> = ({
   );
 
   const style = classNames(
-    'flex items-center font-semibold space-x-2 transition duration-300',
+    className,
+    'flex items-center font-semibold space-x-2 transition duration-300 ',
     colorStyle,
     sizeStyle,
     shapeStyle,
     alignStyle,
     paddingStyle,
-    fullWidth ? 'w-full' : 'w-max',
-    className
+    fullWidth ? 'w-full' : 'w-max'
   );
+
   return (
-    <button className={style} disabled={loading} {...props}>
-      {loading ? (
-        <CircularProgress color="inherit" size={20} />
-      ) : (
-        <>
-          {icon && iconPosition == 'left' && <div>{icon}</div>}
-          {label && <p>{label}</p>}
-          {icon && iconPosition == 'right' && <div>{icon}</div>}
-        </>
-      )}
-    </button>
+    <Link className={style} href={href} {...props}>
+      {icon && iconPosition == 'left' && <div>{icon}</div>}
+      {label && <p>{label}</p>}
+      {icon && iconPosition == 'right' && <div>{icon}</div>}
+    </Link>
   );
 };
 
-Button.defaultProps = {
-  type: 'button',
+ButtonLink.defaultProps = {
   color: 'primary',
   shape: 'brick',
   weight: 'solid',
   size: 'medium',
-  loading: false,
+  align: 'center',
   iconPosition: 'left',
   fullWidth: false,
-  align: 'center',
 };
-export default Button;
+export default ButtonLink;

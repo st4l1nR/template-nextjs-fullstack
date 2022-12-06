@@ -19,7 +19,6 @@
       "@components/*": ["src/components/*"],
       "@ctypes/*": ["src/types/*"],
       "@lib/*": ["src/lib/*"],
-      "@graphql/*": ["src/graphql/*"]
     }
   },
   "exclude": ["node_modules"],
