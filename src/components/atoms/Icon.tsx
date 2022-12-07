@@ -26,9 +26,9 @@ const Facebook = (props) => (
 );
 
 const Twitter = (props) => (
-  <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
-      d="M15.335 15.339H12.67v-4.177c0-.996-.02-2.278-1.39-2.278-1.389 0-1.601 1.084-1.601 2.205v4.25H7.013V6.75h2.56v1.17h.035c.358-.674 1.228-1.387 2.528-1.387 2.7 0 3.2 1.778 3.2 4.091v4.715h-.001ZM4.003 5.575a1.546 1.546 0 0 1-1.287-2.409 1.548 1.548 0 1 1 1.286 2.409h.001Zm1.336 9.764H2.666V6.75H5.34v8.589h-.001ZM16.67 0H1.329C.593 0 0 .58 0 1.297v15.406C0 17.42.594 18 1.328 18h15.338C17.4 18 18 17.42 18 16.703V1.297C18 .58 17.4 0 16.666 0h.004Z"
+      d="M21.162 2.656a8.383 8.383 0 0 1-2.402.658A4.196 4.196 0 0 0 20.6 1c-.82.488-1.72.83-2.656 1.015a4.182 4.182 0 0 0-7.126 3.814 11.874 11.874 0 0 1-8.62-4.37 4.168 4.168 0 0 0-.566 2.103c0 1.45.738 2.731 1.86 3.481a4.168 4.168 0 0 1-1.894-.523v.052a4.185 4.185 0 0 0 3.355 4.101 4.209 4.209 0 0 1-1.89.072A4.185 4.185 0 0 0 6.97 13.65a8.393 8.393 0 0 1-6.191 1.732 11.829 11.829 0 0 0 6.41 1.88c7.693 0 11.9-6.373 11.9-11.9 0-.18-.005-.362-.013-.54a8.495 8.495 0 0 0 2.087-2.165l-.001-.001Z"
       fill="#009FE3"
     />
   </svg>
@@ -83,7 +83,7 @@ const Logo1 = (props) => (
 );
 
 const Logo2 = (props) => (
-  <svg  viewBox="0 0 213 31" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg viewBox="0 0 213 31" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       fillRule="evenodd"
       clipRule="evenodd"
@@ -103,6 +103,20 @@ const Logo2 = (props) => (
   </svg>
 );
 
+const CheckIcon = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+    stroke="currentColor"
+    className="w-6 h-6"
+    {...props}
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+  </svg>
+);
+
 export type props = {
   name:
     | 'arrow-right'
@@ -113,11 +127,12 @@ export type props = {
     | 'phone'
     | 'envelop'
     | 'logo1'
-    | 'logo2';
+    | 'logo2'
+    | 'check';
   className?: string;
 };
 const Icon: React.FC<props> = ({ name, ...props }) => {
-  props.className = classNames('w-6 h-6 fill-current', props.className);
+  props.className = classNames('w-6 h-6 ', props.className);
   switch (name) {
     case 'arrow-right':
       return <ArrowRight {...props} />;
@@ -137,6 +152,8 @@ const Icon: React.FC<props> = ({ name, ...props }) => {
       return <Logo1 {...props} />;
     case 'logo2':
       return <Logo2 {...props} />;
+    case 'check':
+      return <CheckIcon {...props} />;
   }
 };
 

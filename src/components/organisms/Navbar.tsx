@@ -15,9 +15,9 @@ const Navbar: React.FC<props> = ({ className }) => {
         </Link>
 
         <div className="flex items-center max-w-xl space-x-3 text-lg font-bold text-center text-white">
-          <Link href="#">Crédits R&D (RS&DE) Éligibilité</Link>
-          <Link href="#">Crédits R&D (RS&DE) Éligibilité</Link>
-          <Link href="#">Crédits R&D (RS&DE) Éligibilité</Link>
+          <Link href="/credits?step=1a">Crédits R&D (RS&DE) Éligibilité</Link>
+          <Link href="/credits?step=1b">Crédits R&D (RS&DE) Calculateur</Link>
+          <Link href="/subventions">Subventions Admissibilité</Link>
         </div>
       </div>
     </div>

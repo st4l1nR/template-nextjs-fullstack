@@ -2,7 +2,7 @@ import React from 'react';
 import { Hero, Footer } from '@components/organisms';
 
 export type props = {
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'third';
   children: React.ReactNode;
 };
 const LayoutDefault: React.FC<props> = ({ variant, children }) => {

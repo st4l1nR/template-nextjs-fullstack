@@ -21,11 +21,12 @@ const Hero: React.FC<props> = ({ className, variant }) => {
           <div className="flex flex-col items-center mt-24 text-center ">
             <Title level="h1" text="Experts en crédits d’impôt R&D et subventions" />
             <ButtonLink
-              className="m-10"
-              href="free-metting"
+              className="m-12 text-lg"
+              href="#"
               label="Contactez-nous pour une rencontre gratuite"
               icon={<Icon className="text-white" name="arrow-right" />}
               iconPosition="right"
+              size="large"
             />
           </div>
         ) : variant == 'secondary' ? (
@@ -39,16 +40,28 @@ formulaire ci-joint pour savoir si votre projet se qualifie."
             />
           </div>
         ) : (
-          <div className="max-w-5xl mx-auto mt-24">
-            <Title
-              level="h2"
-              text="Les entreprises font face à d’importants défis de financement. Le marché compétitif oblige les entreprises à investir continuellement dans des
-              projets d’amélioration et à gérer efficacement le risque lié à ces investissements. 
-             
-             Conscients de l’importance de ces projets dans l’essor économique du Canada, les gouvernements offrent divers programmes de subventions afin d’aider les entreprises à financer leurs projets et diminuer les risques liés à leurs investissements. Le gouvernement fédéral et les gouvernements provinciaux dépensent environ 35 milliards de
-             dollars par année en subventions aux entreprises. Des centaines de programmes disponibles avec des montants allant de milliers à des millions de
-              dollars. Remplissez le formulaire ci-joint pour savoir si votre projet se qualifie. "
-            />
+          <div className="max-w-5xl mx-auto mt-16 text-base sm:text-3xl p-5">
+            <p>
+              Les entreprises font face à{' '}
+              <span className="font-bold"> d’importants défis de financement.</span> Le marché compétitif
+              oblige les entreprises à investir continuellement dans des projets d’amélioration et{' '}
+              <span className="font-bold">à gérer efficacement le risque lié à ces investissements.</span>
+            </p>
+            <p className="mt-5">
+              Conscients de l’importance de ces projets dans l’essor économique du Canada,{' '}
+              <span className="font-bold">
+                les gouvernements offrent divers programmes de subventions afin d’aider les entreprises à
+                financer leurs projets{' '}
+              </span>
+              et diminuer les risques liés à leurs investissements. Le gouvernement fédéral et les
+              gouvernements provinciaux dépensent environ{' '}
+              <span className="font-bold">
+                35 milliards de dollars par année en subventions aux entreprises.
+              </span>{' '}
+              Des centaines de programmes disponibles avec{' '}
+              <span className="font-bold"> des montants allant de milliers à des millions de dollars.</span>{' '}
+              Remplissez le formulaire ci-joint pour savoir si votre projet se qualifie.
+            </p>
           </div>
         )}
       </div>

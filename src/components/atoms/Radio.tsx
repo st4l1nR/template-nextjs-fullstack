@@ -10,7 +10,7 @@ const Radio = React.forwardRef<any, props>(({ color, label, ...props }, ref) => 
   return (
     <div className="flex items-center mb-4 items">
       <input type="radio" value="1" className="radio-primary" ref={ref} {...props} />
-      <label className="ml-2 text-sm font-medium text-gray-900 ">{label}</label>
+      {label && <label className="ml-2 input-label ">{label}</label>}
     </div>
   );
 });
